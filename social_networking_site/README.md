@@ -11,32 +11,32 @@ the following commands:
 
 ## Notes
 
-### Ruby version
+### Ruby Version
 
 3.0.2
 
-### Rails version
+### Rails Version
 
 6.1.4.1
 
-### System dependencies
+### System Dependencies
 
 Nokogiri gem version 1.12.5
 
-### Database creation
+### Database Creation
 
 1. rails db:migrate
 2. rails db:migrate RAILS_ENV=test
 
-### Database initialization
+### Database Initialization
 
 1. rails db:seed
 2. rails db:seed RAILS_ENV=test
 
-## How to run the test suite
+### How To Run The Test Suite
 
 rails test:model
 
-# Deployment instructions
+### Deployment Instructions
 
 A working site is contained in files *social_networking_site_no_node_module.zip* and *social_networking_site_node_modules.zip*. Unpack these files into a directory and start the site with the command "rails server". The site can be accessed at **http://localhost:3000/members** .
