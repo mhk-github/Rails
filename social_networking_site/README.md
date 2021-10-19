@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Initial Setup
 
-Things you may want to cover:
+These directories contain all files altered after the creation of this app by
+the following commands:
 
-* Ruby version
+1. rails new social\_networking_site
+2. cd social\_networking_site
+3. rails generate scaffold Member full_name:string website:string
 
-* System dependencies
+## Notes
 
-* Configuration
+### Ruby version
 
-* Database creation
+3.0.2
 
-* Database initialization
+### Rails version
 
-* How to run the test suite
+6.1.4.1
 
-* Services (job queues, cache servers, search engines, etc.)
+### System dependencies
 
-* Deployment instructions
+Nokogiri gem version 1.12.5
 
-* ...
+### Database creation
+
+1. rails db:migrate
+2. rails db:migrate RAILS_ENV=test
+
+### Database initialization
+
+1. rails db:seed
+2. rails db:seed RAILS_ENV=test
+
+## How to run the test suite
+
+rails test:model
+
+# Deployment instructions
+
+A working site is contained in files *social_networking_site_no_node_module.zip* and *social_networking_site_node_modules.zip*. Unpack these files into a directory and start the site with the command "rails server". The site can be accessed at **http://localhost:3000/members** .
