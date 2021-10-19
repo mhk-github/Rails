@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @member.full_name %>
+</p>
+
+<p>
+  <strong>Website URL:</strong>
+  <%= @member.website %>
+</p>
+
+<p>
+  <strong>Shortened URL:</strong>
+  <%= @member.shortened_url %>
+</p>
+
+<p>
+  <strong>Search For New Friends:</strong>
+  <%= form_tag(member_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag('Search') %>
+  <% end %>
+
+  <ul>
+    <% if @results %>
+      <% @results.each do |contact| %>
+        <% contact_route = Member.shortest_path(@member, contact).map {|m| m.full_name}.join(' > ') %>
+        <li><%= contact.full_name %></li>
+          <ul>
+            <li>Contacts: <%= contact_route %></li>
+          </ul>
+      <% end %>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Friends:</strong>
+  <ul>
+    <% @member.friendships.each do |f| %>
+      <li><%= Member.find(f.friend_member_id).full_name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>H1 Lines:</strong>
+  <ul>
+    <% @member.header_one_lines.each do |line| %>
+      <li><%= line.header_one %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>H2 Lines:</strong>
+  <ul>
+    <% @member.header_two_lines.each do |line| %>
+      <li><%= line.header_two %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>H3 Lines:</strong>
+  <ul>
+    <% @member.header_three_lines.each do |line| %>
+      <li><%= line.header_three %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
